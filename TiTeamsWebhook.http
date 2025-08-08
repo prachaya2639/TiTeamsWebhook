@@ -1,0 +1,6 @@
+@TiTeamsWebhook_HostAddress = http://localhost:5231
+
+GET {{TiTeamsWebhook_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

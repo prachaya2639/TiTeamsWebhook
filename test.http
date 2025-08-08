@@ -1,0 +1,41 @@
+﻿### Health Check
+GET https://localhost:7000/webhooks/health
+
+### Test Shipment Notification
+POST https://localhost:7000/webhooks/test/shipment
+
+### Test Invoice Notification
+POST https://localhost:7000/webhooks/test/invoice
+
+### Custom Shipment Webhook Test
+POST https://localhost:7000/webhooks/ti/shipment
+Content-Type: application/json
+
+{
+  "orderNumber": "999888777",
+  "wayBillNumber": "ASN999",
+  "trackingNumber": "1Z999AA9999999999",
+  "carrier": "UPS",
+  "shipDate": "2024-08-15",
+  "estimatedDelivery": "2024-08-17",
+  "shipmentDetails": {
+    "weight": "0.5 kg",
+    "dimensions": "10x5x2 cm",
+    "packages": 1
+  }
+}
+
+### Custom Invoice Webhook Test
+POST https://localhost:7000/webhooks/ti/invoice
+Content-Type: application/json
+
+{
+  "orderNumber": "999888777",
+  "documentNumber": "INV-2024-999",
+  "documentType": "INVOICE",
+  "totalAmount": 99.99,
+  "currency": "USD",
+  "issueDate": "2024-08-16",
+  "dueDate": "2024-09-15",
+  "pdfUrl": "https://example.com/invoice.pdf"
+}

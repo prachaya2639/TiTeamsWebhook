@@ -29,6 +29,10 @@ namespace TiTeamsWebhook.Services
         {
             var message = CreateShipmentMessage(shipment);
             var webhookUrl = _configuration["Teams:ShipmentWebhookUrl"];
+
+            // เพิ่มบรรทัดนี้เพื่อ debug
+            _logger.LogInformation("🔍 Webhook URL from config: {WebhookUrl}", webhookUrl ?? "NULL");
+
             return await SendToTeamsAsync(webhookUrl, message);
         }
 
